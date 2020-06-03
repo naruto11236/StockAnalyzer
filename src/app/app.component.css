@@ -1,0 +1,14 @@
+
+h3{
+    color: black
+}
+body {
+    background-color: blue;
+    margin: 0px;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    margin: 0px;
+}

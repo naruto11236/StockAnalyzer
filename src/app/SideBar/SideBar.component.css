@@ -1,0 +1,26 @@
+
+h4{
+    color: white;
+    margin: 0px; 
+    padding: 10px;
+}
+h3{
+    color: white
+}
+main {
+    background-color: blue;
+    height: 100vh;
+    margin: 0px;
+}
+.flex-container > div > h3, .flex-container > div > h4 {
+    font-size: 12px;
+}
+.flex-container > div > img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  img {
+    float:left;
+    border-radius: 50%;
+}

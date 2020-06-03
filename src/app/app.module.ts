@@ -3,16 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-@NgModule({
+import { SideBarComponent } from './SideBar/SideBar.component';
+import { HomeComponent} from './Home/Home.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { HttpClientModule} from "@angular/common/http";
+import {GetApiService} from "./Home/get-api.service";
+ @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SideBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AgGridModule.withComponents([])
+
   ],
-  providers: [],
+  providers: [GetApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
