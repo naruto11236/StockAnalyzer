@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetApiService } from './get-api.service';
 import { HttpClient } from "@angular/common/http";
+import { JsonPipe } from '@angular/common';
 
 
 @Component({
@@ -19,20 +20,19 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.columnDefs = [
-      { headerName: "Symbol", field: "0", sortable: true, filter: true, },
-      { headerName: "Open", field: "01", sortable: true, filter: true },
-      { headerName: "High", field: "02", sortable: true, filter: true },
-      { headerName: "Low", field: "03", sortable: true, filter: true },
-      { headerName: "Price", field: "04", sortable: true, filter: true },
+      { headerName: "Symbol", field: "symbol", sortable: true, filter: true, },
+      { headerName: "10 Day Average", field: "metric.10DayAverageTradingVolume", sortable: true, filter: true },
+      { headerName: "3 Month Average", field: "metric.3MonthAverageTradingVolume", sortable: true, filter: true },
+      { headerName: "52 Week High", field: "metric.52WeekHigh", sortable: true, filter: true },
+      { headerName: "52 Week low", field: "metric.52WeekLow", sortable: true, filter: true },
     ];
   }
 
   public onGridReady(params) {
       this.gridApi = params.api;
-      this.http.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=YEPZVDEZ6XFE0YRB").subscribe(data => {
-        var result = data["Global Quote"];
+      this.http.get("https://finnhub.io/api/v1/stock/metric?symbol=AAPL&metric=all&token=brf5sanrh5rah2kpep0g").subscribe(data => {
         let x = [];
-        x.push(result);
+        x.push(data);
         this.rowData = x;
       })
   }
