@@ -4,5 +4,4 @@ export class Stock {
     high: string;
     low: string;
     price: string;
-
 }

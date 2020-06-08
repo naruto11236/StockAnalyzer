@@ -1,32 +1,39 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {GetApiService} from './get-api.service';
-import { Subscriber } from 'rxjs';
-import { Stock} from './global.model'
+import { Component, OnInit } from '@angular/core';
+import { GetApiService } from './get-api.service';
+import { HttpClient } from "@angular/common/http";
+
+
 @Component({
- selector: 'app-home',
- templateUrl: './Home.component.html',
- styleUrls:['./Home.component.css']
+  selector: 'app-home',
+  templateUrl: './Home.component.html',
+  styleUrls: ['./Home.component.css']
 })
 export class HomeComponent implements OnInit {
-  stocks$: Stock[];
-    columnDefs = [
-        {headerName: "Symbol", field: "symbol", sortable: true, filter: true},
-        {headerName: "Open", field: "ticker", sortable: true, filter: true},
-        {headerName: "High", field: "high", sortable: true, filter: true},
-        {headerName: "Low", field: "low", sortable: true, filter: true},
-        {headerName: "Price", field: "price", sortable: true, filter: true},
+  public gridApi;
+  public gridColumnApi;
+  public columnDefs;
+  public rowData;
 
-      ]
-      rowData: any = [];
-      
-      constructor(private api:GetApiService) {
+  constructor(public api: GetApiService, public http: HttpClient) {
 
-      }
-      ngOnInit() {
-        const stocks$ = this.api.apiCall().subscribe(data=>{this.stocks$=data; this.rowData = this.stocks$; console.log(data)});
-        // this.rowData = x.map;
-        
-        }
-      }
-    
+  }
+  ngOnInit() {
+    this.columnDefs = [
+      { headerName: "Symbol", field: "0", sortable: true, filter: true, },
+      { headerName: "Open", field: "01", sortable: true, filter: true },
+      { headerName: "High", field: "02", sortable: true, filter: true },
+      { headerName: "Low", field: "03", sortable: true, filter: true },
+      { headerName: "Price", field: "04", sortable: true, filter: true },
+    ];
+  }
+
+  public onGridReady(params) {
+      this.gridApi = params.api;
+      this.http.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=YEPZVDEZ6XFE0YRB").subscribe(data => {
+        var result = data["Global Quote"];
+        let x = [];
+        x.push(result);
+        this.rowData = x;
+      })
+  }
+}
