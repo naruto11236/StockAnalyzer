@@ -25,12 +25,16 @@ export class HomeComponent implements OnInit {
       { headerName: "3 Month Average", field: "metric.3MonthAverageTradingVolume", sortable: true, filter: true },
       { headerName: "52 Week High", field: "metric.52WeekHigh", sortable: true, filter: true },
       { headerName: "52 Week low", field: "metric.52WeekLow", sortable: true, filter: true },
+      { headerName: "Volume", field: "metric.Volume", sortable: true, filter: true },
+      { headerName: "High Today", field: "metric.HighToday", sortable: true, filter: true },
+      { headerName: "Low Today", field: "metric.LowToday", sortable: true, filter: true }
+
     ];
   }
 
   public onGridReady(params) {
       this.gridApi = params.api;
-      this.http.get("https://finnhub.io/api/v1/stock/metric?symbol=AAPL&metric=all&token=brf5sanrh5rah2kpep0g").subscribe(data => {
+      this.http.get("https://finnhub.io/api/v1/stock/metric?symbol=AMZN&metric=all&token=brf5sanrh5rah2kpep0g").subscribe(data => {
         let x = [];
         x.push(data);
         this.rowData = x;
