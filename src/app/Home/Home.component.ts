@@ -9,10 +9,8 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./Home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public gridApi;
-  public gridColumnApi;
   public columnDefs;
-  public rowData;
+  public rowData: any[];
   public APIKEY = "brf5sanrh5rah2kpep0g";
   public tickers = ["AAPL", "AMZN", "MSFT", "TSLA", "BA", "CVS", "EA", "ATVI", "ZM", "FB"]
 
@@ -38,6 +36,8 @@ export class HomeComponent implements OnInit {
       })
     });
     console.log(x);
-    this.rowData = x;
+    setTimeout(() => {
+      this.rowData = x;
+    }, 500);
   }
 }
