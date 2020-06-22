@@ -26,22 +26,23 @@ export class HomeComponent implements OnInit {
       { headerName: "52 Week High", field: "metric.52WeekHigh", sortable: true, filter: true },
       { headerName: "52 Week low", field: "metric.52WeekLow", sortable: true, filter: true },
       { headerName: "Volume", field: "metric.Volume", sortable: true, filter: true },
-      { headerName: "High Today", field: "metric.HighToday", sortable: true, filter: true },
-      { headerName: "Low Today", field: "metric.LowToday", sortable: true, filter: true }
+      { headerName: "High Today", field: "metric.High", sortable: true, filter: true },
+      { headerName: "Low Today", field: "metric.Low", sortable: true, filter: true }
 
     ];
   }
+  private gridApi;
 
   public onGridReady(params: any) {
+    this.gridApi = params.api;
     var x = [];
     this.tickers.forEach(e => {
-      this.http.get(`https://finnhub.io/api/v1/stock/metric?symbol=${e}&metric=price&token=${this.APIKEY}`).subscribe(data => {
+      this.http.get(`https://finnhub.io/api/v1/stock/metric?symbol=${e}&metric=Price&token=${this.APIKEY}`).subscribe(data => {
         x.push(data);
+        this.gridApi.setRowData(x);
       })
     });
-    console.log(x);
-    setTimeout(() => {
-      this.rowData = x;
-    }, 500);
+  
+   
   }
 }
