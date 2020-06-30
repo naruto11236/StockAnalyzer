@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GetApiService } from './get-api.service';
 import { HttpClient } from "@angular/common/http";
-
+import { Chart } from 'angular-highcharts';
+import { lineChartOptions } from '../helpers/lineChartOptions';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HomeComponent implements OnInit {
   public columnDefs;
+  public lineChart = new Chart(lineChartOptions);
   public rowData: any[];
   public APIKEY = "brf5sanrh5rah2kpep0g";
   public tickers = ["AAPL", "AMZN", "MSFT", "TSLA", "BA", "CVS", "EA", "ATVI", "ZM", "FB"]
@@ -25,10 +27,6 @@ export class HomeComponent implements OnInit {
       { headerName: "3 Month Average", field: "metric.3MonthAverageTradingVolume", sortable: true, filter: true },
       { headerName: "52 Week High", field: "metric.52WeekHigh", sortable: true, filter: true },
       { headerName: "52 Week low", field: "metric.52WeekLow", sortable: true, filter: true },
-      { headerName: "Volume", field: "metric.Volume", sortable: true, filter: true },
-      { headerName: "High Today", field: "metric.High", sortable: true, filter: true },
-      { headerName: "Low Today", field: "metric.Low", sortable: true, filter: true }
-
     ];
   }
   private gridApi;
@@ -42,7 +40,5 @@ export class HomeComponent implements OnInit {
         this.gridApi.setRowData(x);
       })
     });
-  
-   
   }
 }

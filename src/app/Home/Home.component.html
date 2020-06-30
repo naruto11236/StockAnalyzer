@@ -1,11 +1,17 @@
 
 <h1>Home</h1>
-<ag-grid-angular
-    style=" width: 1000px; margin-left: 20px; margin-top: 10px"
-    class="ag-theme-balham"
-    domLayout='autoHeight'
-    
-    [columnDefs]="columnDefs"
-    #agGrid
-    (gridReady)="onGridReady($event)"
-></ag-grid-angular>
+<main>
+    <div>
+        <ag-grid-angular
+            class="ag-theme-balham"
+            domLayout='autoHeight'
+            [columnDefs]="columnDefs"
+            #agGrid
+            (gridReady)="onGridReady($event)"
+            >
+        </ag-grid-angular>
+    </div>
+    <div class="chart-container">
+        <div class="line" [chart]="lineChart" [runOutsideAngular]="true"></div>
+    </div>
+</main>

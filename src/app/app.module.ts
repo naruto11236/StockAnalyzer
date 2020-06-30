@@ -8,15 +8,18 @@ import { HomeComponent} from './Home/Home.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule} from "@angular/common/http";
 import {GetApiService} from "./Home/get-api.service";
+import { ChartModule } from 'angular-highcharts';
+
  @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ChartModule,
     HttpClientModule,
     AgGridModule.withComponents([])
 
