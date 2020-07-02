@@ -1,46 +1,38 @@
+h1, .home-text, h3 {
+    color: white;
+}
 
-h4{
+h4 {
     color: grey;
-    margin: 10px; 
-    padding: 15px;
 }
-h5{
-    color: white;
-    margin: 10px; 
-    padding: 15px;
-}
-h1{
-    color: white;
-    font-size: 25px;
-    margin-top: 0px;
-    padding-top: 10px;
-    padding-left: 15px;
-}
-h3{
-    color: white;
-    padding: 0px;
-}
+
 main {
     background-color: blue;
-    height: 800px;
-    width: 250px;
-    margin: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
 }
-.flex-container > div > h3, .flex-container > div > h4 {
-    font-size: 12px;
-}
-.flex-container > div > img {
+
+.flex-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    
-    
-  }
-  img {
-    
+    margin-block-end: 10px;
+}
+
+.flex-container > div > h3, .flex-container > div > h4 {
+    font-size: 16px;
+}
+
+img {
     border-radius: 50%;
-    padding: 100px;
-    padding-top: 10000px;
     margin: 2px;
-    
+    border-color: white;
+    width: 75px;
+    height: 75px;
+    margin: 0 10px;
 }
