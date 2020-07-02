@@ -11,13 +11,16 @@ export const lineChartOptions: Options = {
     
       yAxis: {
         title: {
-          text: 'Price'
+          text: 'Price ($)'
         }
       },
     
       xAxis: {
+        title: {
+          text: 'Year'
+        },
         accessibility: {
-          rangeDescription: 'Range: 2012 to 2020'
+          rangeDescription: 'Range: 2012 to 2019'
         }
       },
     
@@ -32,30 +35,30 @@ export const lineChartOptions: Options = {
           label: {
             connectorAllowed: false
           },
-          pointStart: 2010
+          pointStart: 2012
         },
       },
     
       series: [{
         type: 'line',
         name: 'Facebook',
-        data: [100, 120, 150, 170, 121, 153, 321, 330]
+        data: [24.6729, 35.4808 , 68.7622, 88.7719, 117.0351, 156.5762, 171.5109, 181.6375]
       }, {
         type: 'line',
         name: 'Apple',
-        data: [200, 202, 220, 235, 240, 226, 231, 241]
+        data: [82.2928, 67.5193, 92.2646, 120.0385, 104.6040, 150.5511, 189.0534, 208.2559]
       }, {
         type: 'line',
         name: 'Microsoft',
-        data: [170, 178, 176, 167, 157, 189, 139, 180]
+        data: [29.8203, 32.4915, 42.4533, 46.7136, 55.2593, 71.9840, 101.0340, 130.3820]
       }, {
         type: 'line',
         name: 'Google',
-        data: [890, 861, 857, 865, 800, 908, 947, 879]
+        data: [642.8165, 884.2413, 713.9654, 619.9836, 763.2142, 939.7734, 1122.0436, 1191.2169]
       }, {
         type: 'line',
         name: 'Amazon',
-        data: [1356, 1252, 1454, 1565, 2151, 2021, 1897, 2324]
+        data: [220.3037, 298.0322, 332.5510, 478.1373, 699.5231, 968.1670, 1641.7262, 1789.1929]
       }],
 
       responsive: {
