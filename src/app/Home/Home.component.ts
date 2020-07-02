@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
 
   public onGridReady(params: any) {
     this.gridApi = params.api;
+    this.gridApi.sizeColumnsToFit();
     var x = [];
     this.tickers.forEach(e => {
       this.http.get(`https://finnhub.io/api/v1/stock/metric?symbol=${e}&metric=Price&token=${this.APIKEY}`).subscribe(data => {

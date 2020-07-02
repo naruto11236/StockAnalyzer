@@ -33,26 +33,31 @@ export const lineChartOptions: Options = {
             connectorAllowed: false
           },
           pointStart: 2010
-        }
+        },
       },
     
       series: [{
+        type: 'line',
         name: 'Facebook',
         data: [100, 120, 150, 170, 121, 153, 321, 330]
       }, {
+        type: 'line',
         name: 'Apple',
         data: [200, 202, 220, 235, 240, 226, 231, 241]
       }, {
+        type: 'line',
         name: 'Microsoft',
         data: [170, 178, 176, 167, 157, 189, 139, 180]
       }, {
+        type: 'line',
         name: 'Google',
         data: [890, 861, 857, 865, 800, 908, 947, 879]
       }, {
+        type: 'line',
         name: 'Amazon',
         data: [1356, 1252, 1454, 1565, 2151, 2021, 1897, 2324]
       }],
-    
+
       responsive: {
         rules: [{
           condition: {

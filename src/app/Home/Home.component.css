@@ -9,17 +9,11 @@ h1 {
 } 
 
 main {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-left: 300px;
+    margin-left: 280px;
 }
 
 main > div {
     margin: 2%;
-}
-
-.chart-container {
-    padding: 2px;
 }
 
 .chart-container > * {
